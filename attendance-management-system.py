@@ -1,10 +1,12 @@
 students = {}
 
 while True:
-    print("\n1. Add student")
+    print("\n===== Attendance Management System =====")
+    print("1. Add Student")
     print("2. Mark Attendance")
     print("3. View Attendance")
-    print("4. Exit")
+    print("4. Delete Student")
+    print("5. Exit")
 
     choice = input("Enter choice: ")
 
@@ -42,16 +44,28 @@ while True:
             print("Student not found!")
 
     elif choice == "3":
-        for roll_no, student in students.items():
+        if len(students) == 0:
+            print("No students found!")
+        else:
+            for roll_no, student in students.items():
 
-            if student["total"] > 0:
-                percentage = student["present"] / student["total"] * 100
-            else:
-                percentage = 0
+                if student["total"] > 0:
+                    percentage = student["present"] / student["total"] * 100
+                else:
+                    percentage = 0
 
-            print(roll_no, student["name"], round(percentage, 2), "%")
+                print(roll_no, student["name"], round(percentage, 2), "%")
 
     elif choice == "4":
+        roll_no = input("Enter roll no to delete: ")
+
+        if roll_no in students:
+            del students[roll_no]
+            print("Student deleted!")
+        else:
+            print("Student not found!")
+
+    elif choice == "5":
         print("Thank you!")
         break
 
