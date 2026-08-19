@@ -51,7 +51,6 @@ Present Classes / Total Classes × 100
 * Add date-wise attendance
 * Add student deletion option
 * Generate attendance reports
-* Add a graphical user interface
 
 ## Author
 
